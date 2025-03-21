@@ -1,36 +1,40 @@
-Great question! While tsfresh is a well-known library for feature extraction from time series, there are other powerful tools—some focus on augmentation, others on transformation, representation, or synthetic generation.
+# ML Time Series Augmentation: What's Up? 
 
-Here are strong alternatives depending on your goals:
+In time series ML models, data augmentation is a common tool. How can we do this augmentation today?
 
-🔁 Time Series Augmentation Libraries
-These are built specifically for creating new data to improve model robustness.
+Let's explore three different augmentation strategies:
 
-Library	Highlights
-numenta/nupic	Focus on anomaly detection, supports encoders and streaming data augmentation.
-nni (Neural Network Intelligence)	Has a TimeSeriesAug module offering jittering, scaling, permutation, etc.
-tsaug ⭐	Easy-to-use; supports random time warping, permutation, noise injection, cropping, drift, trend, etc.
-GluonTS	Amazon's time series lib; great for probabilistic forecasting + synthetic generation.
-TFT (Temporal Fusion Transformer)	Built on PyTorch, with attention-based understanding and support for synthetic data generation.
-Datawig	For imputing missing time series (a type of augmentation via filling gaps).
-🔍 Feature Extraction / Representation Alternatives to tsfresh
-These convert time series into descriptive features for ML models:
+---
 
-Library	Highlights
-Kats (by Meta)	Forecasting + anomaly detection + feature extraction.
-sktime	Classical + deep learning pipelines, includes transformers and feature tools.
-tsfel	Extracts features for classification — energy, entropy, FFT, etc.
-catch22	Extracts 22 carefully-selected features from time series, very fast.
-pyts	Focuses on time series classification (includes shapelet transform, bag-of-words, etc.)
-🧪 Synthetic Time Series Generation
-For creating entirely new sequences from learned distributions:
+## 1. Custom Augmentations (DIY Style)
 
-TimeGAN (TensorFlow): Combines autoencoder + GAN to generate realistic multivariate time series.
-CTGAN / TVAE: Can be adapted for sequential data from tabular synthetic generators.
-Darts (by Unit8): Time series forecasting and generation, with deep learning and statistical models.
-✅ Recommendation
-For your use case (augmentation for lathe manufacturing signals), I’d suggest:
+**What it is:**  
+A set of custom functions, essentially adding random "noise" to the time series. Techniques include:
 
-✅ tsaug — super flexible and NumPy-friendly.
-✅ tsfel or catch22 — if you want explainable, lightweight feature sets.
-✅ TimeGAN — if you ever want to generate new (not just augmented) sequences for simulation or bootstrapping.
-Would you like to integrate one of these (e.g., tsaug) into your current code for visualization next to your custom methods?
+- **Time warping/stretching:** Speeds up or slows down the sequence.
+- **Jitter:** Adds random noise.
+- **Window shearing:** Extracts and interpolates a portion of the series.
+- **Masking/inverting/shifting:** Alters the temporal order or hides portions of the signal.
+- **Frequency and trend noise injection:** Modifies the spectral or trend components of the signal.
+
+🔗 **The code:**  
+[Custom Augmentations - GitHub](https://github.com/Leci37/ML-Time-Series-Augmentation-What-s-Up-/blob/main/time_series.py)
+
+---
+
+## 2. Tsaug Library
+
+**Tsaug** is ideal for quick, scalable augmentation pipelines with clean, well-documented APIs. Key methods:
+
+- **Time warp:** Non-linear temporal distortions
+- **Crop:** Keep only part of the signal
+- **Drift:** Gradual shift over time
+- **Quantize:** Reduce signal precision
+- **Reverse & pool:** Flip sequences or downsample
+
+🔗 **The code:**  
+[Tsaug Example - GitHub](https://github.com/Leci37/ML-Time-Series-Augmentation-What-s-Up-/blob/main/time_series_tsaug.py)
+
+---
+
+There you have the visual results of each method — use the one that comes closest to what you want!
