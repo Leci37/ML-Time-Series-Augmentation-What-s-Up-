@@ -16,6 +16,8 @@ A set of custom functions, essentially adding random "noise" to the time series.
 - **Window shearing:** Extracts and interpolates a portion of the series.
 - **Masking/inverting/shifting:** Alters the temporal order or hides portions of the signal.
 - **Frequency and trend noise injection:** Modifies the spectral or trend components of the signal.
+![image info](plot/DIY_all_augmentations_combined.png)
+
 
 🔗 **The code:**  
 [Custom Augmentations - GitHub](https://github.com/Leci37/ML-Time-Series-Augmentation-What-s-Up-/blob/main/time_series.py)
@@ -32,9 +34,13 @@ A set of custom functions, essentially adding random "noise" to the time series.
 - **Quantize:** Reduce signal precision
 - **Reverse & pool:** Flip sequences or downsample
 
+![image info](plot/tsaug_augmentations_combined.png)
+
 🔗 **The code:**  
 [Tsaug Example - GitHub](https://github.com/Leci37/ML-Time-Series-Augmentation-What-s-Up-/blob/main/time_series_tsaug.py)
 
 ---
 
 There you have the visual results of each method — use the one that comes closest to what you want!
+
+
