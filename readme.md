@@ -155,7 +155,7 @@ def gaussian_blur(data, sigma=1):
 
 ![image info](plot/tsaug_augmentations_combined.png)
 
-🔗 **The code:**  
+ **The code:**  
 [Tsaug Example - GitHub](https://github.com/Leci37/ML-Time-Series-Augmentation-What-s-Up-/blob/main/time_series_tsaug.py)
 
 ---
